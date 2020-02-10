@@ -1,0 +1,5 @@
+Credentials cache: API:1695ABAE-E674-48C8-AADF-1A8568436484
+        Principal: iwoo@42SEOUL.KR
+
+  Issued                Expires               Principal
+Jan 20 13:56:56 2020  Jan 20 23:56:56 2020  krbtgt/42SEOUL.KR@42SEOUL.KR
