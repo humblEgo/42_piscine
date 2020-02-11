@@ -6,12 +6,11 @@
 /*   By: kycho <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/09 19:45:17 by kycho             #+#    #+#             */
-/*   Updated: 2020/02/11 12:48:02 by iwoo             ###   ########.fr       */
+/*   Updated: 2020/02/11 13:43:12 by iwoo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_rush02.h"
-
 
 void	puterror(void)
 {
@@ -50,12 +49,11 @@ int		check_dict(char *dict)
 	i = 0;
 	while (dict[i] == '\n')
 		i++;
-	if (dict[i] == '\0')
+	if (dict[i--] == '\0')
 	{
 		puterror();
 		return (0);
 	}
-	i--;
 	while (dict[i] != '\0')
 	{
 		i = check_dict_oneline(dict, i + 1);
