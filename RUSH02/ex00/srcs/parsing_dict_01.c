@@ -6,7 +6,7 @@
 /*   By: mykang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/08 15:11:03 by mykang            #+#    #+#             */
-/*   Updated: 2020/02/10 10:29:55 by iwoo             ###   ########.fr       */
+/*   Updated: 2020/02/11 12:52:16 by iwoo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,6 @@ void	create_dict_buf(char *str, int fd, int str_len)
 	new_fd = open("numbers.dict", O_RDONLY);
 	read(new_fd, dict, char_cnt);
 	dict[char_cnt] = '\0';
-	if (!check_dict(dict))
-		return ;
 	if (!check_repit_key(parse_dict(dict, line_cnt)))
 		return ;
 	srch_str(str, parse_dict(dict, line_cnt), str_len, 0);

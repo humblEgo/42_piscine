@@ -6,7 +6,7 @@
 /*   By: kycho <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/09 19:45:17 by kycho             #+#    #+#             */
-/*   Updated: 2020/02/10 10:30:48 by iwoo             ###   ########.fr       */
+/*   Updated: 2020/02/11 12:48:02 by iwoo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,10 @@ int		check_repit_key(t_dic *arr)
 		while (arr[j].key[0] != '\0')
 		{
 			if (i != j && ft_strcmp(arr[i].key, arr[j].key) == 0)
+			{
+				puterror();
 				return (0);
+			}
 			j++;
 		}
 		i++;
