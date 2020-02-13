@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_cat.h                                           :+:      :+:    :+:   */
+/*   ft.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iwoo <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/10 15:25:48 by iwoo              #+#    #+#             */
-/*   Updated: 2020/02/12 09:45:55 by iwoo             ###   ########.fr       */
+/*   Created: 2020/02/06 23:02:26 by iwoo              #+#    #+#             */
+/*   Updated: 2020/02/07 10:59:09 by iwoo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_CAT_H
-# define FT_CAT_H
-# include <fcntl.h>
+#ifndef FT_H
+# define FT_H
 # include <unistd.h>
-# include <errno.h>
-# include <string.h>
-# include <libgen.h>
 
-# define MAX 30000
-
-void	ft_putstr_err(char *str);
-void	ft_puterror(int err_num, char *path, char *pname);
+int		ft_atoi(char *str);
+void	ft_putnbr(int num);
 #endif

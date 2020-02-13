@@ -6,7 +6,7 @@
 /*   By: iwoo <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/06 16:13:51 by iwoo              #+#    #+#             */
-/*   Updated: 2020/02/10 22:19:43 by iwoo             ###   ########.fr       */
+/*   Updated: 2020/02/13 20:00:06 by iwoo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,19 +52,18 @@ int		main(int argc, char **argv)
 		str_echo();
 	else
 	{
-		i = 1;
-		while (i < argc)
+		i = 0;
+		while (++i < argc)
 		{
 			errno = 0;
 			fd = open(argv[i], O_RDONLY);
 			if (fd == -1)
 			{
 				ft_puterror(errno, argv[i], argv[0]);
-				break ;
+				continue ;
 			}
 			ft_display_file(fd, argv[i], argv[0]);
 			close(fd);
-			i++;
 		}
 	}
 	return (0);

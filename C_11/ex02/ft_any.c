@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_cat.h                                           :+:      :+:    :+:   */
+/*   ft_any.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iwoo <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/10 15:25:48 by iwoo              #+#    #+#             */
-/*   Updated: 2020/02/12 09:45:55 by iwoo             ###   ########.fr       */
+/*   Created: 2020/02/06 21:11:47 by iwoo              #+#    #+#             */
+/*   Updated: 2020/02/06 21:35:41 by iwoo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_CAT_H
-# define FT_CAT_H
-# include <fcntl.h>
-# include <unistd.h>
-# include <errno.h>
-# include <string.h>
-# include <libgen.h>
+int	ft_any(char **tab, int (*f)(char*))
+{
+	int i;
 
-# define MAX 30000
-
-void	ft_putstr_err(char *str);
-void	ft_puterror(int err_num, char *path, char *pname);
-#endif
+	i = 0;
+	while (*(tab + i))
+	{
+		if (f(*(tab + i)) != 0)
+			return (1);
+		i++;
+	}
+	return (0);
+}

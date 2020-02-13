@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_cat.h                                           :+:      :+:    :+:   */
+/*   ft_map.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iwoo <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/10 15:25:48 by iwoo              #+#    #+#             */
-/*   Updated: 2020/02/12 09:45:55 by iwoo             ###   ########.fr       */
+/*   Created: 2020/02/06 20:55:21 by iwoo              #+#    #+#             */
+/*   Updated: 2020/02/06 21:10:32 by iwoo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_CAT_H
-# define FT_CAT_H
-# include <fcntl.h>
-# include <unistd.h>
-# include <errno.h>
-# include <string.h>
-# include <libgen.h>
+#include <stdlib.h>
 
-# define MAX 30000
+int	*ft_map(int *tab, int length, int (*f)(int))
+{
+	int *res;
+	int i;
 
-void	ft_putstr_err(char *str);
-void	ft_puterror(int err_num, char *path, char *pname);
-#endif
+	res = (int *)malloc(sizeof(int) * length);
+	i = -1;
+	while (++i < length)
+		res[i] = f(tab[i]);
+	return (res);
+}

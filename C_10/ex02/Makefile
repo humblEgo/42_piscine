@@ -1,5 +1,5 @@
 NAME = ft_tail
-SRCS = srcs/display_msg_util.c srcs/ft_tail.c srcs/string_util.c srcs/valid_util.c
+SRCS = srcs/display_msg_util.c srcs/ft_tail.c srcs/string_util.c srcs/valid_util.c srcs/display_msg_util2.c
 OBJS = $(SRCS:%.c=%.o)
 INC = includes/
 

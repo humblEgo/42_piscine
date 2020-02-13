@@ -1,24 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   string_util.c                                      :+:      :+:    :+:   */
+/*   ft_sort_string_tab.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iwoo <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/10 16:01:22 by iwoo              #+#    #+#             */
-/*   Updated: 2020/02/11 23:17:53 by iwoo             ###   ########.fr       */
+/*   Created: 2020/02/07 11:47:40 by iwoo              #+#    #+#             */
+/*   Updated: 2020/02/07 14:05:32 by iwoo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "ft_tail.h"
-
-void	ft_putstr(char *str)
-{
-	while (*str)
-	{
-		write(1, str++, 1);
-	}
-}
 
 int		ft_strcmp(char *a, char *b)
 {
@@ -30,18 +20,37 @@ int		ft_strcmp(char *a, char *b)
 	return (a[i] - b[i]);
 }
 
-int		ft_atoi(char *str)
+void	ft_swap(char **a, char **b)
 {
-	int idx;
-	int num;
+	char *temp;
 
-	num = 0;
-	idx = 0;
-	while (str[idx])
+	temp = *a;
+	*a = *b;
+	*b = temp;
+}
+
+void	ft_sort_string_tab(char **tab)
+{
+	int tab_size;
+	int i;
+	int j;
+
+	tab_size = 0;
+	while (tab[tab_size])
+		tab_size++;
+	if (tab_size == 0 || tab_size == 1)
+		return ;
+	i = -1;
+	while (tab[++i])
 	{
-		num *= 10;
-		num += str[idx] - '0';
-		idx++;
+		j = i + 1;
+		while (tab[j])
+		{
+			if (ft_strcmp(tab[i], tab[j]) > 0)
+			{
+				ft_swap(&tab[i], &tab[j]);
+			}
+			j++;
+		}
 	}
-	return (num);
 }

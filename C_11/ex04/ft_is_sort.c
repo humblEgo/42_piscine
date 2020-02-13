@@ -1,25 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_cat.h                                           :+:      :+:    :+:   */
+/*   ft_is_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iwoo <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/10 15:25:48 by iwoo              #+#    #+#             */
-/*   Updated: 2020/02/12 09:45:55 by iwoo             ###   ########.fr       */
+/*   Created: 2020/02/06 21:42:15 by iwoo              #+#    #+#             */
+/*   Updated: 2020/02/07 15:57:25 by iwoo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_CAT_H
-# define FT_CAT_H
-# include <fcntl.h>
-# include <unistd.h>
-# include <errno.h>
-# include <string.h>
-# include <libgen.h>
+int	ft_is_sort(int *tab, int length, int (*f)(int, int))
+{
+	int i;
+	int asc_flag;
+	int dec_flag;
 
-# define MAX 30000
-
-void	ft_putstr_err(char *str);
-void	ft_puterror(int err_num, char *path, char *pname);
-#endif
+	asc_flag = 1;
+	dec_flag = 1;
+	i = 0;
+	while (i < length - 1)
+	{
+		if (f(tab[i], tab[i + 1]) < 0)
+			dec_flag = 0;
+		i++;
+	}
+	i = 0;
+	while (i < length - 1)
+	{
+		if (f(tab[i], tab[i + 1]) > 0)
+			asc_flag = 0;
+		i++;
+	}
+	if (asc_flag + dec_flag < 1)
+		return (0);
+	return (1);
+}
