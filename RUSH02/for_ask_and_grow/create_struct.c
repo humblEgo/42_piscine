@@ -6,7 +6,7 @@
 /*   By: mykang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/08 15:11:03 by mykang            #+#    #+#             */
-/*   Updated: 2020/02/11 12:43:38 by iwoo             ###   ########.fr       */
+/*   Updated: 2020/02/11 14:15:38 by iwoo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,8 +155,8 @@ d_s		*parse_dict(char *dict, int line_cnt)
 		new_dict++;
 		idx++;
 	}
-	d_s_array[idx].key[0] = '\0';
-	d_s_array[idx].value[0] = '\0';
+	d_s_array[idx].key = NULL;
+	d_s_array[idx].value = NULL;
 	return (d_s_array);
 }
 
